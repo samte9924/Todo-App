@@ -1,0 +1,224 @@
+:root {
+  --button-primary: hsl(240, 100%, 70%);
+  --button-secondary: hsla(240, 100%, 70%, 0.5);
+
+  ---priority-high-primary: hsla(0, 100%, 50%, 0.5);
+  ---priority-high-secondary: hsla(0, 100%, 50%, 0.1);
+
+  ---priority-medium-primary: hsla(60, 100%, 50%, 0.5);
+  ---priority-medium-secondary: hsla(60, 100%, 50%, 0.1);
+
+  ---priority-low-primary: hsla(120, 100%, 25%, 0.5);
+  ---priority-low-secondary: hsla(120, 100%, 25%, 0.1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+}
+
+.todo-app-title {
+  font-size: 60px;
+  margin: 60px;
+}
+
+.todo-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  gap: 1rem;
+}
+
+.todo-input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.todo-priority-input {
+  width: 100%;
+}
+.todo-priority-input select {
+  outline: none;
+  appearance: none;
+  width: 100%;
+  font-size: 20px;
+  padding: 0 10px;
+  background-color: hsl(0, 0%, 20%);
+  border: 1px solid hsl(0, 0%, 40%);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  height: 50px;
+}
+
+.todo-date-input {
+  font-size: 20px;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: hsl(0, 0%, 20%);
+  border: 1px solid hsl(0, 0%, 40%);
+  color: white;
+}
+.todo-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.todo-name-input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 40%);
+  padding: 20px;
+  font-size: 20px;
+  background-color: hsl(0, 0%, 20%);
+  color: white;
+  width: 100%;
+}
+.todo-name-input::placeholder {
+  color: hsl(0, 0%, 70%);
+}
+
+.edit-todo-button,
+.delete-todo-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 200ms ease-out;
+}
+
+.add-todo-button {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 200ms ease-out;
+  color: white;
+}
+.add-todo-button:hover {
+  background-color: hsl(120, 100%, 20%);
+}
+
+.add-todo-button,
+.edit-todo-button,
+.delete-todo-button {
+  background-color: var(--button-primary);
+}
+.add-todo-button:hover,
+.edit-todo-button:hover,
+.delete-todo-button:hover {
+  background-color: var(--button-secondary);
+}
+
+.add-todo-image {
+  width: 40px;
+  margin: 10px;
+}
+.edit-todo-image,
+.delete-todo-image {
+  width: 30px;
+  margin: 10px;
+}
+
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 60px;
+  border: 1px solid hsl(0, 0%, 40%);
+  padding: 1rem;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.todo-task-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.todo-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo-checkbox {
+  position: relative;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  outline: none;
+}
+.todo-checkbox:checked {
+  background-color: var(--button-primary);
+}
+.todo-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+.todo-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.priority-high {
+  border: 2px solid var(---priority-high-primary);
+  background-color: var(---priority-high-secondary);
+}
+
+.priority-medium {
+  border: 2px solid var(---priority-medium-primary);
+  background-color: var(---priority-medium-secondary);
+}
+.priority-low {
+  border: 2px solid var(---priority-low-primary);
+  background-color: var(---priority-low-secondary);
+}
