@@ -10,99 +10,27 @@
     <div class="todo-app-title">To-Do App</div>
     <div class="todo-input-container">
       <input
-          type="text"
-          name="name"
-          class="todo-name-input"
-          placeholder="Attività"
-        />
+        type="text"
+        name="name"
+        class="todo-name-input"
+        placeholder="Attività"
+      />
       <div class="todo-input-row">
-        
-        <input type="date" name="date" class="todo-date-input">
-        <div class="todo-priority-input">
-          <select name="priority">
+        <input type="date" name="date" class="todo-date-input" />
+
+        <div class="todo-priority-input-wrapper">
+          <select name="priority" class="todo-priority-input">
             <option value="0" selected disabled>Priorità</option>
             <option value="low">Bassa</option>
             <option value="medium">Media</option>
-            <option value="high" class="option-high">Alta</option>
+            <option value="high">Alta</option>
           </select>
         </div>
       </div>
-      <button class="add-todo-button">
-        Aggiungi
-      </button>
+      <button class="add-todo-button">Aggiungi</button>
     </div>
-    
 
-    <div class="todo-list-container">
-      <div class="todo-task-container priority-high">
-        <div class="todo-task">
-          <input type="checkbox" name="completed" class="todo-checkbox" />
-          <span class="todo-text">Task 1</span>
-        </div>
-        <div class="todo-actions">
-          <button class="edit-todo-button">
-            <img
-              src="/assets/pencil_white.png"
-              alt="Add"
-              class="edit-todo-image"
-            />
-          </button>
-          <button class="delete-todo-button">
-            <img
-              src="/assets/trash_white.png"
-              alt="Add"
-              class="delete-todo-image"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="todo-task-container priority-medium">
-        <div class="todo-task">
-          <input type="checkbox" name="completed" class="todo-checkbox" />
-          <span class="todo-text">Task 2</span>
-        </div>
-        <div class="todo-actions">
-          <button class="edit-todo-button">
-            <img
-              src="/assets/pencil_white.png"
-              alt="Add"
-              class="edit-todo-image"
-            />
-          </button>
-          <button class="delete-todo-button">
-            <img
-              src="/assets/trash_white.png"
-              alt="Add"
-              class="delete-todo-image"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="todo-task-container priority-low">
-        <div class="todo-task">
-          <input type="checkbox" name="completed" class="todo-checkbox" />
-          <span class="todo-text">Task 3</span>
-        </div>
-        <div class="todo-actions">
-          <button class="edit-todo-button">
-            <img
-              src="/assets/pencil_white.png"
-              alt="Add"
-              class="edit-todo-image"
-            />
-          </button>
-          <button class="delete-todo-button">
-            <img
-              src="/assets/trash_white.png"
-              alt="Add"
-              class="delete-todo-image"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    
-  </div>
+    <div class="todo-list-container"></div>
 
     <script src="index.js" type="module"></script>
   </body>
