@@ -102,6 +102,10 @@ document
 function renderHomePage() {
   let todosHtml = "";
 
+  document.querySelector(".todo-date-input").value = new Date()
+    .toISOString()
+    .slice(0, 10);
+
   const priorities = ["low", "medium", "high"];
 
   todos.forEach((todo) => {
