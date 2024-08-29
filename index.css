@@ -183,8 +183,8 @@ body {
 .todo-checkbox {
   position: relative;
   appearance: none;
-  width: 30px;
   height: 30px;
+  aspect-ratio: 1/1;
   cursor: pointer;
   border-radius: 3px;
   background-color: #f0f0f0;

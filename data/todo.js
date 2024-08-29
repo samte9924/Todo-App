@@ -57,7 +57,7 @@ export function orderByName() {
 }
 
 export function orderByPriority() {
-  todos.sort((todoA, todoB) => new Date(todoA.date) - new Date(todoB.date));
+  todos.sort((todoA, todoB) => todoB.priority - todoA.priority);
   saveToLocalStorage();
 }
 
