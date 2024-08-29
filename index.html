@@ -14,12 +14,13 @@
         name="name"
         class="todo-name-input"
         placeholder="Attività"
+        required
       />
       <div class="todo-input-row">
         <input type="date" name="date" class="todo-date-input" />
 
         <div class="todo-priority-input-wrapper">
-          <select name="priority" class="todo-priority-input">
+          <select name="priority" class="todo-priority-input" required>
             <option value="0" selected disabled>Priorità</option>
             <option value="low">Bassa</option>
             <option value="medium">Media</option>

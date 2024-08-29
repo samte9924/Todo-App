@@ -1,4 +1,11 @@
-import { todos, addTodo, loadTodos, getTodo, setTodo } from "./data/todo.js";
+import {
+  todos,
+  addTodo,
+  loadTodos,
+  getTodo,
+  setTodo,
+  deleteTodo,
+} from "./data/todo.js";
 import { v4 as uuidv4 } from "https://esm.sh/uuid";
 
 loadTodos();
@@ -8,15 +15,16 @@ document.querySelector(".add-todo-button").addEventListener("click", () => {
   const dateInput = document.querySelector(".todo-date-input");
   const priorityInput = document.querySelector(".todo-priority-input");
 
+  let today;
+
   if (!nameInput.value) {
     alert("Inserire il nome dell'attività.");
     return;
   }
   if (!dateInput.value) {
-    alert("Inserire una data.");
-    return;
+    today = new Date().toISOString().slice(0, 10);
   }
-  if (!priorityInput.value) {
+  if (priorityInput.value === "0") {
     alert("Inserire una priorità.");
     return;
   }
@@ -26,7 +34,7 @@ document.querySelector(".add-todo-button").addEventListener("click", () => {
   const todo = {
     id: uuid,
     name: nameInput.value,
-    date: dateInput.value,
+    date: dateInput.value || today,
     priority: priorityInput.value,
     checked: false,
   };
@@ -48,8 +56,14 @@ function renderHomePage() {
         <input type="checkbox" name="completed" class="todo-checkbox" 
         ${todo.checked ? "checked" : ""}
         data-todo-id="${todo.id}" />
-        <span class="todo-text js-text-${todo.id} 
-        ${todo.checked ? "done" : ""}">${todo.name}</span>
+        <div class="todo-info">
+          <div class="todo-text js-text-${todo.id} 
+            ${todo.checked ? "done" : ""}">${todo.name}
+          </div>
+          <div class="todo-date">
+            ${todo.date}
+          </div>
+        </div>
       </div>
       <div class="todo-actions">
         <button class="edit-todo-button" data-todo-id="${todo.id}">
@@ -88,7 +102,10 @@ function renderHomePage() {
   document.querySelectorAll(".delete-todo-button").forEach((button) => {
     button.addEventListener("click", () => {
       const todoId = button.dataset.todoId;
-      console.log(todoId);
+
+      deleteTodo(todoId);
+
+      renderHomePage();
     });
   });
 }

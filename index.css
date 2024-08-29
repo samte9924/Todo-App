@@ -137,14 +137,15 @@ body {
   background-color: var(--button-secondary);
 }
 
-.add-todo-image {
-  width: 40px;
-  margin: 10px;
+.edit-todo-button,
+.delete-todo-button {
+  height: 50px;
+  aspect-ratio: 1/1;
 }
+
 .edit-todo-image,
 .delete-todo-image {
   width: 30px;
-  margin: 10px;
 }
 
 .todo-list-container {
@@ -153,12 +154,14 @@ body {
   gap: 1rem;
   margin-top: 60px;
   padding: 1rem;
-  width: 500px;
+  width: 600px;
+  overflow-y: auto;
 }
 
 .todo-task-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
   border-radius: 10px;
@@ -169,6 +172,13 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
 }
 
 .todo-checkbox {
@@ -198,11 +208,16 @@ body {
 }
 
 .todo-text {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
 }
 .done {
   text-decoration: line-through;
+}
+
+.todo-date {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-size: 18px;
 }
 
 .todo-actions {

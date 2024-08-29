@@ -1,5 +1,4 @@
 export let todos = JSON.parse(localStorage.getItem("todos")) || [];
-console.log(todos);
 
 export function loadTodos() {
   todos = JSON.parse(localStorage.getItem("todos", todos)) || [];
@@ -29,7 +28,14 @@ export function setTodo(newTodo) {
   saveToLocalStorage();
 }
 
-export function deleteTodo(todoId) {}
+export function deleteTodo(todoId) {
+  todos.forEach((todo, index) => {
+    if (todo.id === todoId) {
+      todos.splice(index, 1);
+    }
+  });
+  saveToLocalStorage();
+}
 
 function saveToLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
