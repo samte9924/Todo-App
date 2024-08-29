@@ -123,14 +123,14 @@ function renderHomePage() {
       <div class="todo-actions">
         <button class="edit-todo-button" data-todo-id="${todo.id}">
           <img
-            src="/assets/pencil_white.png"
+            src="./assets/pencil_white.png"
             alt="Add"
             class="edit-todo-image"
           />
         </button>
         <button class="delete-todo-button" data-todo-id="${todo.id}">
           <img
-            src="/assets/trash_white.png"
+            src="./assets/trash_white.png"
             alt="Add"
             class="delete-todo-image"
           />
