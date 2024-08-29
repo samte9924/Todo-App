@@ -10,30 +10,54 @@ export function addTodo(todo) {
 }
 
 export function getTodo(todoId) {
-  let matchingTodo;
-  todos.forEach((todo) => {
-    if (todo.id === todoId) {
-      matchingTodo = todo;
-    }
-  });
-  return matchingTodo;
+  return todos.find((todo) => todo.id === todoId);
 }
 
 export function setTodo(newTodo) {
+  const index = todos.findIndex((todo) => todo.id === newTodo.id);
+  if (index !== -1) {
+    todos[index] = newTodo;
+    saveToLocalStorage();
+  }
+}
+
+export function deleteTodo(todoId) {
+  todos = todos.filter((todo) => todo.id !== todoId);
+
+  saveToLocalStorage();
+}
+
+export function selectAll() {
   todos.forEach((todo) => {
-    if (todo.id === newTodo.id) {
-      return newTodo;
-    }
+    todo.checked = true;
   });
   saveToLocalStorage();
 }
 
-export function deleteTodo(todoId) {
-  todos.forEach((todo, index) => {
-    if (todo.id === todoId) {
-      todos.splice(index, 1);
-    }
+export function unselectAll() {
+  todos.forEach((todo) => {
+    todo.checked = false;
   });
+  saveToLocalStorage();
+}
+
+export function deleteChecked() {
+  todos = todos.filter((todo) => !todo.checked);
+  saveToLocalStorage();
+}
+
+export function orderByDate() {
+  todos.sort((todoA, todoB) => new Date(todoA.date) - new Date(todoB.date));
+  saveToLocalStorage();
+}
+
+export function orderByName() {
+  todos.sort((todoA, todoB) => todoA.name.localeCompare(todoB.name));
+  saveToLocalStorage();
+}
+
+export function orderByPriority() {
+  todos.sort((todoA, todoB) => new Date(todoA.date) - new Date(todoB.date));
   saveToLocalStorage();
 }
 

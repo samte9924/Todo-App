@@ -5,11 +5,31 @@ import {
   getTodo,
   setTodo,
   deleteTodo,
+  deleteChecked,
+  orderByDate,
+  orderByName,
+  selectAll,
+  unselectAll,
+  orderByPriority,
 } from "./data/todo.js";
 import { v4 as uuidv4 } from "https://esm.sh/uuid";
 
 loadTodos();
+const localOrderBy = localStorage.getItem("orderBy") || "date";
+if (localOrderBy === "date") {
+  orderByDate();
+}
+if (localOrderBy === "name") {
+  orderByName();
+}
+if (localOrderBy === "priority") {
+  orderByPriority();
+}
+
 renderHomePage();
+
+document.querySelector(".order-by-input").value = localOrderBy;
+
 document.querySelector(".add-todo-button").addEventListener("click", () => {
   const nameInput = document.querySelector(".todo-name-input");
   const dateInput = document.querySelector(".todo-date-input");
@@ -46,12 +66,47 @@ document.querySelector(".add-todo-button").addEventListener("click", () => {
   renderHomePage();
 });
 
+document.querySelector(".select-all").addEventListener("click", () => {
+  selectAll();
+  renderHomePage();
+});
+
+document.querySelector(".unselect-all").addEventListener("click", () => {
+  unselectAll();
+  renderHomePage();
+});
+
+document.querySelector(".delete-checked").addEventListener("click", () => {
+  deleteChecked();
+  renderHomePage();
+});
+
+document
+  .querySelector(".order-by-input")
+  .addEventListener("change", (event) => {
+    if (event.target.value === "date") {
+      localStorage.setItem("orderBy", "date");
+      orderByDate();
+    }
+    if (event.target.value === "name") {
+      localStorage.setItem("orderBy", "name");
+      orderByName();
+    }
+    if (event.target.value === "priority") {
+      localStorage.setItem("orderBy", "priority");
+      orderByPriority();
+    }
+    renderHomePage();
+  });
+
 function renderHomePage() {
   let todosHtml = "";
 
+  const priorities = ["low", "medium", "high"];
+
   todos.forEach((todo) => {
     todosHtml += `
-    <div class="todo-task-container priority-${todo.priority}">
+    <div class="todo-task-container priority-${priorities[todo.priority - 1]}">
       <div class="todo-task">
         <input type="checkbox" name="completed" class="todo-checkbox" 
         ${todo.checked ? "checked" : ""}

@@ -152,7 +152,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 60px;
   padding: 1rem;
   width: 600px;
   overflow-y: auto;
@@ -237,4 +236,83 @@ body {
 .priority-low {
   border: 2px solid var(---priority-low-primary);
   background-color: var(---priority-low-secondary);
+}
+
+.container-separator {
+  margin: 40px 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+  width: 500px;
+}
+
+.todo-list-actions {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 3rem;
+}
+
+.order-by-container {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-by-label {
+  font-size: 25px;
+}
+
+.order-by-input {
+  outline: none;
+  appearance: none;
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  padding: 5px 10px;
+  background-color: hsl(0, 0%, 20%);
+  border: 1px solid hsl(0, 0%, 40%);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.actions-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.delete-checked,
+.select-all,
+.unselect-all {
+  color: white;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  aspect-ratio: 3/2;
+  font-size: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 200ms ease-out;
+}
+
+.select-all,
+.unselect-all {
+  background-color: var(--button-primary);
+}
+.select-all:hover,
+.unselect-all:hover {
+  background-color: var(--button-secondary);
+}
+
+.delete-checked {
+  background-color: hsla(0, 100%, 50%, 0.8);
+}
+
+.delete-checked:hover {
+  background-color: hsla(0, 100%, 50%, 0.5);
 }

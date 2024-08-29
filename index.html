@@ -22,13 +22,28 @@
         <div class="todo-priority-input-wrapper">
           <select name="priority" class="todo-priority-input" required>
             <option value="0" selected disabled>Priorità</option>
-            <option value="low">Bassa</option>
-            <option value="medium">Media</option>
-            <option value="high">Alta</option>
+            <option value="1">Bassa</option>
+            <option value="2">Media</option>
+            <option value="3">Alta</option>
           </select>
         </div>
       </div>
       <button class="add-todo-button">Aggiungi</button>
+    </div>
+    <div class="todo-list-actions">
+      <div class="order-by-container">
+        <label class="order-by-label">Ordina per</label>
+        <select name="order" class="order-by-input">
+          <option value="date">Data</option>
+          <option value="name">Nome</option>
+          <option value="priority">Priorità</option>
+        </select>
+      </div>
+      <div class="actions-buttons">
+        <button class="select-all">S</button>
+        <button class="unselect-all">D</button>
+        <button class="delete-checked">CC</button>
+      </div>
     </div>
 
     <div class="todo-list-container"></div>
